@@ -55,7 +55,7 @@
       'target_name': 'test',
       'type': 'executable',
       'dependencies': [ 'dlfcn' ],
-      'sources': [ 'test.c' ]
+      'sources': [ './test.c' ]
     }
   ]
 }
