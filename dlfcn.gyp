@@ -52,6 +52,14 @@
     },
 
     {
+      'target_name': 'testdll',
+      'product_prefix': '',
+      'product_extension': 'dll',
+      'type': 'shared_library',
+      'sources': [ './testdll.c', ],
+    },
+
+    {
       'target_name': 'test',
       'type': 'executable',
       'dependencies': [ 'dlfcn' ],
