@@ -43,6 +43,11 @@
     {
       'target_name': 'dlfcn',
       'type': 'static_library',
+      'link_settings': {
+        'libraries': [
+          '-lpsapi',
+        ]
+      },
       'include_dirs': [ '.' ],
       'direct_dependent_settings': {
         'include_dirs': [ '.' ],
