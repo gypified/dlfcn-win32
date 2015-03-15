@@ -2,9 +2,10 @@
 # dlfcn-win32 Makefile
 #
 include config.mak
+CFLAGS=-Wall -O3 -fomit-frame-pointer
 
 ifeq ($(BUILD_SHARED),yes)
-	TARGETS += libdl.dll libdl.dll.a
+	TARGETS += libdl.dll
 	SHFLAGS += -Wl,--out-implib,libdl.dll.a
 	INSTALL += shared-install
 endif
@@ -24,13 +25,13 @@ HEADERS  := dlfcn.h
 all: $(TARGETS)
 
 %.o: %.c
-	$(CC) -o $@ -c $< -Wall -O3 -fomit-frame-pointer
+	$(CC) -o $@ -c $< $(CFLAGS)
 
 libdl.a: $(LIB_OBJS)
 	$(AR) cru $@ $^
 	$(RANLIB) libdl.a
 
-libdl.dll libdl.dll.a: $(LIB_OBJS)
+libdl.dll: $(LIB_OBJS)
 	$(CC) $(SHFLAGS) -shared -o $@ $^
 
 libdl.lib: libdl.dll
