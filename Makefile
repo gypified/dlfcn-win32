@@ -8,6 +8,7 @@ LIBS  += -lpsapi
 ifeq ($(BUILD_SHARED),yes)
 	TARGETS += libdl.dll
 	SHFLAGS += -Wl,--out-implib,libdl.dll.a
+	CFLAGS  += -DSHARED
 	INSTALL += shared-install
 endif
 ifeq ($(BUILD_STATIC),yes)
